@@ -1,7 +1,9 @@
 import './styles/global.css';
 
+import { Registration } from './pages/Registration';
+
 function App() {
-	return <h1>ola mundo</h1>;
+	return <Registration />;
 }
 
 export default App;
