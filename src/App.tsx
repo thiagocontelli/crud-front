@@ -3,6 +3,7 @@ import './styles/global.css';
 import { Registration } from './pages/Registration';
 import { Header } from './components/Header';
 import React from 'react';
+import { List } from './pages/List';
 
 function App() {
 	const [value, setValue] = React.useState(0);
@@ -17,7 +18,7 @@ function App() {
 				handleChange={handleChange}
 				value={value}
 			/>
-			{value === 0 ? <Registration /> : <h1>List</h1>}
+			{value === 0 ? <Registration /> : <List />}
 		</>
 	);
 }

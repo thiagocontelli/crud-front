@@ -1,0 +1,13 @@
+.container {
+	border: 1px solid gray;
+	padding: 1rem;
+	border-radius: 4px;
+	min-width: 400px;
+	max-width: 300  ;
+	display: flex;
+	justify-content: space-between;
+}
+
+h4 {
+  color: rgb(63, 63, 63);
+}

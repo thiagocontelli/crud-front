@@ -8,7 +8,7 @@ export interface Book {
 	bookBase64: string;
 }
 
-export function useRegistration() {
+export function useBooks() {
 	const [allBooks, setAllBooks] = useState<Book[]>([]);
 
 	// form fields

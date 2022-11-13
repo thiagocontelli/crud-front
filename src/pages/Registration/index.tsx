@@ -5,7 +5,7 @@ import FileUploadIcon from '@mui/icons-material/FileUpload';
 
 import './style.css';
 
-import { useRegistration } from './useRegistration';
+import { useBooks } from '../../hooks/useBooks';
 
 export function Registration() {
 	const {
@@ -23,7 +23,7 @@ export function Registration() {
 		handleUploadFile,
 		file,
 		setFile,
-	} = useRegistration();
+	} = useBooks();
 
 	return (
 		<M.Box
