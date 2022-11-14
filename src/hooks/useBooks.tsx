@@ -19,15 +19,32 @@ export function useBooks() {
 	const [bookBase64, setBookBase64] = useState<string | ArrayBuffer | null>('');
 	const [file, setFile] = useState<File>();
 
+	const allFieldsAreFilled = () => {
+		if (
+			name !== '' &&
+			author !== '' &&
+			description !== '' &&
+			bookBase64 !== ''
+		) {
+			return true;
+		}
+		return false;
+	};
+
 	async function registerBook() {
 		try {
-			const response = axios.post('http://localhost:3333/books', {
-				name,
-				author,
-				description,
-				bookBase64,
-			});
-			resetInputFields();
+			if (allFieldsAreFilled()) {
+				const response = axios.post('http://localhost:3333/books', {
+					name,
+					author,
+					description,
+					bookBase64,
+				});
+				resetInputFields();
+				return;
+			}
+
+			alert('Fill all fields!');
 		} catch (error) {
 			console.log(error);
 		}

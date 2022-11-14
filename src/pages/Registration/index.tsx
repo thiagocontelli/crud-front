@@ -40,7 +40,6 @@ export function Registration() {
 			<form>
 				<M.TextField
 					label='Name'
-					required
 					value={name}
 					onChange={(
 						e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -50,7 +49,6 @@ export function Registration() {
 				/>
 				<M.TextField
 					label='Author'
-					required
 					value={author}
 					onChange={(
 						e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -60,7 +58,6 @@ export function Registration() {
 				/>
 				<M.TextField
 					label='Description'
-					required
 					value={description}
 					multiline
 					minRows={3}
@@ -100,12 +97,6 @@ export function Registration() {
 					</M.Button>
 				</M.Box>
 			</form>
-
-			<ul>
-				{allBooks.map((book, index) => (
-					<li key={index}>{book.name}</li>
-				))}
-			</ul>
 		</M.Box>
 	);
 }
