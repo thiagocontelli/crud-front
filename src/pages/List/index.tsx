@@ -29,27 +29,31 @@ export function List() {
 		>
 			<h2>Your library</h2>
 
-			{hook.allBooks.map((book, index) => (
-				<div className='container'>
-					<>
-						<div>
-							<h3>{book.name}</h3>
-							<h4>{book.author}</h4>
-						</div>
-						<div>
-							<M.IconButton color='primary'>
-								<EditIcon />
-							</M.IconButton>
-							<M.IconButton color='primary'>
-								<DownloadIcon />
-							</M.IconButton>
-							<M.IconButton color='error'>
-								<DeleteIcon />
-							</M.IconButton>
-						</div>
-					</>
-				</div>
-			))}
+			{hook.allBooks.length > 0 ? (
+				hook.allBooks.map((book, index) => (
+					<div className='container'>
+						<>
+							<div>
+								<h3>{book.name}</h3>
+								<h4>{book.author}</h4>
+							</div>
+							<div>
+								<M.IconButton color='primary'>
+									<EditIcon />
+								</M.IconButton>
+								<M.IconButton color='primary'>
+									<DownloadIcon />
+								</M.IconButton>
+								<M.IconButton color='error'>
+									<DeleteIcon />
+								</M.IconButton>
+							</div>
+						</>
+					</div>
+				))
+			) : (
+				<p>Your library is empty!</p>
+			)}
 		</M.Box>
 	);
 }
