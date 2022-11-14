@@ -22,7 +22,7 @@ export function DeleteWarning({ onClose, open, bookId }: Props) {
 					variant='contained'
 					onClick={onClose}
 				>
-					Cancelar
+					Cancel
 				</M.Button>
 				<M.Button
 					color='error'
