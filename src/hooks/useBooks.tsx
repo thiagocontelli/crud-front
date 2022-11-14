@@ -2,6 +2,7 @@ import axios from 'axios';
 import { useState } from 'react';
 
 export interface Book {
+	id: string;
 	name: string;
 	author: string;
 	description: string;
@@ -30,6 +31,10 @@ export function useBooks() {
 		} catch (error) {
 			console.log(error);
 		}
+	}
+
+	function deleteBook(id: string) {
+		axios.delete(`http://localhost:3333/books/${id}`);
 	}
 
 	async function getAllBooks() {
@@ -72,5 +77,6 @@ export function useBooks() {
 		handleUploadFile,
 		file,
 		setFile,
+		deleteBook,
 	};
 }
