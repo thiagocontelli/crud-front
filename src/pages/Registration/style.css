@@ -5,3 +5,7 @@ form {
   min-width: 400px;
   max-width: 300px;
 }
+
+h2 {
+  margin-top: 3rem;
+}
