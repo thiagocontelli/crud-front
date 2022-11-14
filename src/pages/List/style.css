@@ -6,6 +6,12 @@
 	max-width: 300;
 	display: flex;
 	justify-content: space-between;
+	transition: all ease 0.2s;
+	cursor: pointer;
+}
+
+.container:hover {
+	background-color: rgba(211, 211, 211, 0.162);
 }
 
 h2 {
