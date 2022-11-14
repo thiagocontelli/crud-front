@@ -56,9 +56,14 @@ export function List() {
 									<M.IconButton color='primary'>
 										<EditIcon />
 									</M.IconButton>
-									<M.IconButton color='primary'>
-										<DownloadIcon />
-									</M.IconButton>
+									<a
+										download='book'
+										href={book.bookBase64}
+									>
+										<M.IconButton color='primary'>
+											<DownloadIcon />
+										</M.IconButton>
+									</a>
 									<M.IconButton
 										onClick={() => {
 											handleClickOpen();
