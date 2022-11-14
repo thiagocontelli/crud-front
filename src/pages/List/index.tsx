@@ -1,7 +1,7 @@
 import * as M from '@mui/material';
 import { useEffect, useState } from 'react';
 
-import { useBooks } from '../../hooks/useBooks';
+import { Book, useBooks } from '../../hooks/useBooks';
 
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
@@ -10,20 +10,31 @@ import DownloadIcon from '@mui/icons-material/Download';
 import { DeleteWarning } from './DeleteWarning';
 
 import './style.css';
+import { BookInfoModal } from './BookInfoModal';
 
 export function List() {
 	const hook = useBooks();
 
 	const [bookIdToDelete, setBookIdToDelete] = useState('');
+	const [selectedBook, setSelectedBook] = useState<Book>({} as Book);
 
-	const [open, setOpen] = useState(false);
+	const [openDeleteWarning, setOpenDeleteWarning] = useState(false);
+	const [openBookInfo, setOpenBookInfo] = useState(false);
 
-	const handleClickOpen = () => {
-		setOpen(true);
+	const handleClickOpenDeleteWarning = () => {
+		setOpenDeleteWarning(true);
 	};
 
-	const handleClose = () => {
-		setOpen(false);
+	const handleCloseDeleteWarning = () => {
+		setOpenDeleteWarning(false);
+	};
+
+	const handleClickOpenBookInfo = () => {
+		setOpenBookInfo(true);
+	};
+
+	const handleCloseBookInfo = () => {
+		setOpenBookInfo(false);
 	};
 
 	useEffect(() => {
@@ -46,7 +57,19 @@ export function List() {
 
 				{hook.allBooks.length > 0 ? (
 					hook.allBooks.map((book, index) => (
-						<div className='container'>
+						<div
+							onClick={() => {
+								setSelectedBook({
+									name: book.name,
+									author: book.author,
+									description: book.description,
+									bookBase64: book.bookBase64,
+									id: book.id,
+								});
+								handleClickOpenBookInfo();
+							}}
+							className='container'
+						>
 							<>
 								<div>
 									<h3>{book.name}</h3>
@@ -66,7 +89,7 @@ export function List() {
 									</a>
 									<M.IconButton
 										onClick={() => {
-											handleClickOpen();
+											handleClickOpenDeleteWarning();
 											setBookIdToDelete(book.id);
 										}}
 										color='error'
@@ -83,9 +106,15 @@ export function List() {
 			</M.Box>
 
 			<DeleteWarning
-				onClose={handleClose}
-				open={open}
+				onClose={handleCloseDeleteWarning}
+				open={openDeleteWarning}
 				bookId={bookIdToDelete}
+			/>
+
+			<BookInfoModal
+				book={selectedBook}
+				onClose={handleCloseBookInfo}
+				open={openBookInfo}
 			/>
 		</>
 	);
