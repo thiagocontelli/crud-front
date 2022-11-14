@@ -98,16 +98,6 @@ export function Registration() {
 					>
 						Register
 					</M.Button>
-					{/* <M.Button
-						type='submit'
-						variant='outlined'
-						onClick={e => {
-							e.preventDefault();
-							getAllBooks();
-						}}
-					>
-						List
-					</M.Button> */}
 				</M.Box>
 			</form>
 
